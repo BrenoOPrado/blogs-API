@@ -10,7 +10,7 @@ const generateToken = ({ id, displayName, email }) => {
   };
 
   const jwtConfig = {
-    expiresIn: '15m',
+    expiresIn: '50m',
     algorithm: 'HS256',
   };
 
@@ -22,16 +22,17 @@ const generateToken = ({ id, displayName, email }) => {
 const authenticateToken = async (token) => {
   if (!token) {
     const status = 401;
-    const message = 'missing token';
+    const message = 'Token not found';
     return { status, message };
   }
 
   try {
     const validateToken = jwt.verify(token, TOKEN_SECRET_KEY);
+    console.log(validateToken);
     return validateToken;
   } catch (error) {
     const status = 401;
-    const message = 'jwt malformed';
+    const message = 'Expired or invalid token';
     return { status, message };
   }
 };

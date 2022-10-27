@@ -16,33 +16,27 @@ const nameValidate = (name) => {
 
 const existEmail = async (email) => {
     const user = await User.findOne({
-        attributes: [ 'email' ],
+        attributes: ['email'],
         where: { email },
     });
     if (!user) {
         return false;
     }
     return true;
-}
+};
 
 const emailValidate = async (email) => {
-    const regex = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/g;
+    const regex = /^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/g;
     if (!email.match(regex)) {
         return {
             isValid: false,
-            result: {
-                status: 400,
-                message: '"email" must be a valid email',
-            },
+            result: { status: 400, message: '"email" must be a valid email' },
         };
     }
     if (await existEmail(email)) {
         return {
             isValid: false,
-            result: {
-                status: 409,
-                message: 'User already registered',
-            },
+            result: { status: 409, message: 'User already registered' },
         };
     }
     return { isValid: true };
