@@ -26,7 +26,7 @@ const loginValidate = async ({ email, password }) => {
 
         return { status, message };
     }
-    const result = await userValidate();
+    const result = await userValidate(email, password);
     return result;
 };
 
