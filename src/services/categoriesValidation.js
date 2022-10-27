@@ -6,7 +6,7 @@ const nameValidation = (body) => {
     }
 
     return body.name;
-}
+};
 
 module.exports = {
     nameValidation,
