@@ -9,5 +9,6 @@ userRouter.post('/', userController.addUser);
 userRouter.use(tokenValidation);
 
 userRouter.get('/', userController.findAllUser);
+userRouter.get('/:id', userController.findUserById);
 
 module.exports = userRouter;

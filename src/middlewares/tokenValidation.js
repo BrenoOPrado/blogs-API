@@ -6,7 +6,7 @@ const tokenValidation = async (req, res, next) => {
     const validated = await authenticateToken(authorization);
 
     if (validated.status) {
-        const { status, message } = validated
+        const { status, message } = validated;
         return res.status(status).json({ message });
     }
 
