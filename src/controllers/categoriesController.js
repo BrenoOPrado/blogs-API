@@ -1,4 +1,4 @@
-const validation = require('../services/categoriesValidation');
+const validation = require('../services/category/categoriesValidation');
 const { Category } = require('../models');
 
 const addCategories = async (req, res) => {

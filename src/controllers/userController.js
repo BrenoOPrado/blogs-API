@@ -1,5 +1,5 @@
-const userValidate = require('../services/userValidate');
-const userIdValidate = require('../services/userIdValidate');
+const userValidate = require('../services/user/userValidate');
+const userIdValidate = require('../services/user/userIdValidate');
 const { User } = require('../models');
 
 const addUser = async (req, res) => {

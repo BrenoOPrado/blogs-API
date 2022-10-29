@@ -1,5 +1,5 @@
-const { User } = require('../models');
-const { generateToken } = require('../utils/jwt');
+const { User } = require('../../models');
+const { generateToken } = require('../../utils/jwt');
 
 const nameValidate = (name) => {
     if (name.length < 8) {

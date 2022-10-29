@@ -1,4 +1,4 @@
-const loginValidate = require('../services/loginValidation');
+const loginValidate = require('../services/login/loginValidation');
 
 const loginContoller = async (req, res) => {
     const result = await loginValidate(req.body);
