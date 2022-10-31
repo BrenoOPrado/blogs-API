@@ -11,9 +11,7 @@ const userIdValidate = async (id) => {
     if (!user) {
         return { status: 404, message: 'User does not exist' };
     }
-
-    console.log(user.dataValues);
-
+    
     return { status: 200, message: user.dataValues };
 };
 

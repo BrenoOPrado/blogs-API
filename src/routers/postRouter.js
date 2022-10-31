@@ -8,5 +8,6 @@ postRouter.use(tokenValidation);
 
 // postRouter.post('/', postController.addPost);
 postRouter.get('/', postController.findAllPost);
+postRouter.get('/:id', postController.findPostById);
 
 module.exports = postRouter;
