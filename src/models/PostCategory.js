@@ -1,6 +1,6 @@
 module.exports = (sequelize, DataTypes) => {
     const PostCategory = sequelize.define('PostCategory', {
-        post_id: {
+      post_id: {
         primaryKey: true,
         type: DataTypes.INTEGER,
       },
@@ -9,10 +9,10 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.INTEGER,
       }
     }, {
-      tableName: 'post_category',
+      tableName: 'posts_categories',
       timestamps: false,
     });
-  
+
     PostCategory.associate = (models) => {
       models.BlogPost.belongsToMany(models.Category, {
         as: 'categories',
