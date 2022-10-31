@@ -14,7 +14,7 @@ const isEmpty = (body) => {
 const categoryNotFound = async (categoriesArr) => {
     const categories = await Category.findAll();
     
-    for (let i = 0; i < categoriesArr.length; i++) {
+    for (let i = 0; i < categoriesArr.length; i += 1) {
         if (!categories.some(
             (category) => category.id === Number(categoriesArr[i]),
         )) {
