@@ -1,5 +1,5 @@
 // const postValidate = require('../services/post/postValidate');
-// const { createPost } = require('../services/post/postService');
+const postService = require('../services/post/postService');
 const { BlogPost, Category, User } = require('../models');
 // const { findUserById } = require('./userController');
 
@@ -17,19 +17,7 @@ const { BlogPost, Category, User } = require('../models');
 }; */
 
 const findAllPost = async (_req, res) => {
-    const allPost = await BlogPost.findAll({
-        attributes: {exclude: ['user_id']},
-        include: [{
-            model: User,
-            as: 'user',
-            attributes: {
-                exclude: ['password'],
-              },
-        }, {
-            model: Category,
-            as: 'categories',
-        }],
-    });
+    const allPost = await postService.findAllPost();
 
     return res.status(200).json(allPost);
 };
